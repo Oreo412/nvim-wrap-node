@@ -2,8 +2,8 @@ local M = {}
 
 M.handlers = {}
 
-M.handlers.rust = function(node, type, parent)
-	if t == "type_identifier" or t == "type_arguments" then
+M.handlers.rust = function(node, t, parent)
+	if t == "type_identifier" or t == "type_arguments" or t == "primitive_type" then
 		if parent and parent:type() == "generic_type" then
 			node = parent
 		end
@@ -40,7 +40,7 @@ function M.wrap_node()
 	local left, right
 
 	if handler then
-		node, left, right = handler(node)
+		node, left, right = handler(node, node:type(), node:parent())
 	else
 		left, right = "(", ")"
 	end
@@ -50,12 +50,10 @@ function M.wrap_node()
 	end
 
 	local text = vim.treesitter.get_node_text(node, 0)
-
-	if type(text) == "table" then
-		text = table.concat(text, "\n")
-	end
+	local sr, sc, er, ec = node:range()
 
 	vim.api.nvim_buf_set_text(0, sr, sc, er, ec, { left .. text .. right })
+
 	vim.api.nvim_win_set_cursor(0, { sr + 1, sc })
 	vim.cmd("startinsert")
 end
@@ -68,3 +66,5 @@ function M.setup(opts)
 end
 
 return M
+
+
