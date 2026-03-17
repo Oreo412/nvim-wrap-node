@@ -1,10 +1,10 @@
-nvim-wrap-node
+# nvim-wrap-node
 
 Quickly wrap syntax nodes in Neovim using Tree-sitter.
 
 This plugin lets you wrap the thing under your cursor (types, identifiers, expressions, etc.) and immediately continue typing the wrapper — making refactors like Result<T> or Ok(value) fast and fluid.
 
-✨ Features
+## ✨ Features
 
 Wrap types, identifiers, and expressions
 
@@ -16,8 +16,8 @@ Automatically places cursor for fast typing
 
 Easily extensible per language
 
-🚀 Demo / Examples
-Rust: Wrapping a type
+## 🚀 Demo / Examples
+### Rust: Wrapping a type
 
 Before:
 ```
@@ -36,7 +36,7 @@ Now just type:
 Result<HashMap<String, String>>
 ```
 
-Rust: Nested wrapping
+### Rust: Nested wrapping
 
 Before:
 ```
@@ -68,7 +68,7 @@ Type:
 ```
 return Ok(output_map);
 ```
-📦 Installation (Lazy.nvim)
+## 📦 Installation (Lazy.nvim)
 ```
 return {
   "Oreo412/nvim-wrap-node",
@@ -82,7 +82,7 @@ return {
   end,
 }
 ```
-⚙️ How It Works
+## ⚙️ How It Works
 
 Uses Tree-sitter to find the node under your cursor
 
@@ -98,7 +98,7 @@ or
 ```
 Moves cursor to the start so you can immediately type the wrapper
 
-🧠 Language Support
+## 🧠 Language Support
 Built-in: Rust
 
 Rust has custom behavior:
@@ -119,7 +119,7 @@ primitive_type
 
 scoped_identifier
 
-🔧 Extending to Other Languages
+## 🔧 Extending to Other Languages
 
 You can add your own handler:
 
@@ -141,7 +141,7 @@ left: opening character(s)
 
 right: closing character(s)
 
-🛠 API
+## 🛠 API
 wrap_node()
 
 Wraps the node under the cursor.
@@ -152,13 +152,13 @@ require("wrap-node").setup({
     -- custom language handlers
   }
 })
-⚠️ Requirements
+## ⚠️ Requirements
 
 Neovim ≥ 0.9 (Tree-sitter required)
 
 nvim-treesitter
 
-💡 Notes
+## 💡 Notes
 
 Falls back to (node) if no handler exists
 
@@ -166,7 +166,7 @@ Does nothing in non-modifiable buffers
 
 Starts insert mode automatically after wrapping
 
-🤝 Contributing
+## 🤝 Contributing
 
 Contributions are welcome!
 
@@ -176,6 +176,6 @@ Improve existing handlers
 
 Report issues / edge cases
 
-📜 License
+### 📜 License
 
 MIT
