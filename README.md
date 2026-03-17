@@ -89,13 +89,13 @@ Uses Tree-sitter to find the node under your cursor
 Chooses wrapping characters based on language + context
 
 Replaces the node with:
-
+```
 <node>
-
+```
 or
-
+```
 (node)
-
+```
 Moves cursor to the start so you can immediately type the wrapper
 
 🧠 Language Support
