@@ -50,14 +50,12 @@ function M.wrap_node()
 	end
 
 	local text = vim.treesitter.get_node_text(node, 0)
-	if type(text) == "string" then
-		text = { text }
+
+	if type(text) == "table" then
+		text = table.concat(text, "\n")
 	end
 
-	local sr, sc, er, ec = node:range()
-
 	vim.api.nvim_buf_set_text(0, sr, sc, er, ec, { left .. text .. right })
-
 	vim.api.nvim_win_set_cursor(0, { sr + 1, sc })
 	vim.cmd("startinsert")
 end
