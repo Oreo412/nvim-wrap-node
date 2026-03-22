@@ -24,7 +24,7 @@ Before:
 HashMap<String, String>
 ```
 
-Cursor on HashMap, press <leader>w:
+Cursor on HashMap, press `<leader>`w:
 ```
 <HashMap<String, String>>
  ^
@@ -42,7 +42,7 @@ Before:
 ```
 HashMap<String, String>
 ```
-Cursor on inner String, press <leader>w:
+Cursor on inner String, press `<leader>`w:
 ```
 HashMap<String, <String>>
                  ^
@@ -58,7 +58,7 @@ Before:
 return output_map;
 ```
 
-Cursor on output_map, press <leader>w:
+Cursor on output_map, press `<leader>`w:
 ```
 return (output_map);
         ^
